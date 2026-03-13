@@ -554,3 +554,14 @@ ul {
         height: 28px;
     }
 }
+
+    @media (max-width: 1024px) {
+    .nav-links.mobile-active {
+        z-index: 999; /* Higher than sidebar */
+        display: flex !important; /* Force visibility */
+    }
+    
+    .sidebar {
+        z-index: 10; /* Lower than nav */
+    }
+}
