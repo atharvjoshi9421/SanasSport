@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Bags | Sanas Sportswear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+   Base & Variables
+   ========================================= */
+:root {
+    --primary-color: #d32f2f;
+    --secondary-color: #111111;
+    --bg-light: #f4f4f4;
+    --text-dark: #222222;
+    --text-light: #777777;
+    --white: #ffffff;
+    --border-radius: 6px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+ /* =========================================
+            NAVBAR STYLES
+            ========================================= */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100; background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+       .logo { display: flex; align-items: center; z-index: 101; text-decoration: none; }
+       .nav-logo {height: 50px; /* Adjust this to scale your logo */ width: auto; object-fit: contain; transition: all 0.3s ease;}
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-item { position: relative; }
+        .nav-link { color: #e0e0e0; text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; padding: 10px 0; display: flex; align-items: center; cursor: pointer; transition: color 0.3s; }
+        .nav-link:hover { color: #fff; }
+        .has-dropdown .nav-link::after { content: '▾'; margin-left: 6px; font-size: 0.8rem; }
+        .dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: rgba(20, 20, 20, 0.95); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; padding: 20px; min-width: 220px; opacity: 0; visibility: hidden; pointer-events: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .dropdown.wide { min-width: 450px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 30px; }
+        .dropdown a { color: #aaa; text-decoration: none; font-size: 0.85rem; padding: 8px 0; display: block; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .dropdown a:last-child { border-bottom: none; }
+        .dropdown a:hover { color: #f39c12; padding-left: 5px; }
+        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 101; }
+        .menu-toggle span { width: 30px; height: 2px; background: #fff; transition: 0.3s; }
+
+        @media (max-width: 1024px) {
+            .menu-toggle { display: flex; }
+            .nav-links { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #0f0f0f; flex-direction: column; justify-content: center; align-items: center; gap: 20px; opacity: 0; visibility: hidden; pointer-events: none; }
+            .nav-links.mobile-active { opacity: 1; visibility: visible; pointer-events: all; }
+            .nav-item { text-align: center; }
+            .nav-link { font-size: 1.5rem; }
+            .dropdown, .dropdown.wide { position: relative; top: 0; left: 0; transform: none; background: transparent; box-shadow: none; border: none; min-width: 100%; display: none; grid-template-columns: 1fr; padding: 10px 0; }
+            .dropdown a { font-size: 1rem; justify-content: center; display: flex;}
+        }
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.hero {
+    height: 35vh;
+    min-height: 250px;
+    background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)), url('https://images.unsplash.com/photo-1553531384-397c80973a0b?q=80&w=1200&auto=format&fit=crop') center/cover;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.85;
+}
+
+/* =========================================
+   Main Layout & Sidebar
+   ========================================= */
+.main-container {
+    max-width: 1300px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 50px;
+}
+
+.sidebar {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.sidebar h3 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.category-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.category-list > li {
+    font-weight: 600;
+    padding: 12px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #eeeeee;
+    transition: var(--transition);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.category-list > li:last-child {
+    border-bottom: none;
+}
+
+.category-list > li:hover, 
+.category-list > li.active {
+    color: var(--primary-color);
+    padding-left: 10px;
+}
+
+/* =========================================
+   Product Grid
+   ========================================= */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f0f0f0;
+}
+
+.img-container {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background-color: #eaeaea; 
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.product-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    text-align: center;
+}
+
+.category-tag {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.product-name {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.btn-view {
+    margin-top: auto;
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.btn-view:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* =========================================
+            FOOTER SECTION STYLES
+            ========================================= */
+        .site-footer { background: #050505; position: relative; padding-top: 80px; overflow: hidden; }
+        .footer-accent-line { position: absolute; top: 0; left: 0; height: 2px; width: 100%; background: linear-gradient(90deg, transparent, #f39c12, transparent); transform: scaleX(0); transform-origin: center; }
+        .footer-container { max-width: 1300px; margin: 0 auto; padding: 0 5%; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 50px; padding-bottom: 60px; }
+        .footer-col { opacity: 0; transform: translateY(30px); }
+        .footer-logo { width: 150px; border-radius: 8px; margin-bottom: 25px; display: block; filter: grayscale(20%); transition: filter 0.3s ease; }
+        .footer-logo:hover { filter: grayscale(0%); }
+        .footer-address { color: #aaa; font-size: 0.9rem; line-height: 1.8; margin-bottom: 20px; }
+        .footer-contact-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+        .footer-contact-links a { color: #e0e0e0; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+        .footer-contact-links a:hover { color: #f39c12; }
+        .wa-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .wa-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(37, 211, 102, 0.1); color: #25D366; border: 1px solid rgba(37, 211, 102, 0.3); border-radius: 50px; font-size: 0.85rem; font-weight: 600; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
+        .wa-btn:hover { background: #25D366; color: #000; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
+        .footer-heading { color: #fff; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 25px; }
+        .mt-4 { margin-top: 30px; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .footer-links a { color: #aaa; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; display: inline-block; }
+        .footer-links a:hover { color: #f39c12; transform: translateX(8px); }
+        .newsletter-desc { color: #aaa; font-size: 0.9rem; line-height: 1.6; margin-bottom: 25px; }
+        .newsletter-form { display: flex; flex-direction: column; gap: 15px; }
+        .newsletter-input { width: 100%; padding: 15px 0; background: transparent; border: none; border-bottom: 1px solid rgba(255, 255, 255, 0.2); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; transition: border-color 0.3s ease; }
+        .newsletter-input:focus { outline: none; border-bottom-color: #f39c12; }
+        .newsletter-input::placeholder { color: #666; }
+        .subscribe-btn { align-self: flex-start; padding: 12px 30px; background: #fff; color: #000; border: none; font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; cursor: pointer; transition: all 0.3s ease; }
+        .subscribe-btn:hover { background: #f39c12; color: #fff; }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding: 25px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #666; opacity: 0; }
+        @media (max-width: 900px) { .footer-container { grid-template-columns: 1fr 1fr; } .footer-col:nth-child(1) { grid-column: span 2; } }
+        @media (max-width: 600px) { .footer-container { grid-template-columns: 1fr; gap: 40px; } .footer-col:nth-child(1) { grid-column: span 1; } .footer-bottom { flex-direction: column; text-align: center; gap: 10px; } }
+    
+
+/* =========================================
+   Responsive Design
+   ========================================= */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        position: static;
+        margin-bottom: 20px;
+    }
+    .category-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        max-height: none;
+    }
+    .category-list > li {
+        border: 1px solid #ddd;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+    }
+    .category-list > li:hover, .category-list > li.active {
+        padding-left: 15px;
+        background: var(--primary-color);
+        color: var(--white);
+        border-color: var(--primary-color);
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        background: var(--white);
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        height: auto;
+        padding: 15px 20px;
+        width: 100%;
+    }
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        padding-left: 20px;
+        display: none;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+ /* =========================================
+           LIGHT THEME OVERRIDES (NEW CODE)
+           ========================================= */
+        .theme-toggle-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fff;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        body.light-theme .theme-toggle-btn {
+            background: #000;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        body.light-theme { background: #fff; color: #000; }
+        body.light-theme .navbar { background: rgba(255, 255, 255, 0.9); border-bottom: 1px solid rgba(0,0,0,0.1); }
+        body.light-theme .nav-logo {filter: none; mix-blend-mode: multiply;}
+        body.light-theme .nav-link { color: #333; }
+        body.light-theme .nav-link:hover { color: #000; }
+        body.light-theme .menu-toggle span { background: #000; }
+        body.light-theme .dropdown { background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        body.light-theme .dropdown a { color: #555; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        body.light-theme .dropdown a:hover { color: #f39c12; }
+        
+        @media (max-width: 1024px) {
+            body.light-theme .nav-links { background: #fff; }
+        }
+
+        body.light-theme .categories-section, 
+        body.light-theme .shop-content-section, 
+        body.light-theme .site-footer { background: #f5f5f5; }
+        body.light-theme .recommended-section, 
+        body.light-theme .dealers-section { background: #fff; }
+        
+        body.light-theme .product-card { background: #fff; border: 1px solid rgba(0,0,0,0.1); color: #000;}
+        body.light-theme .product-title { color: #222; }
+        body.light-theme .product-card:hover { background: #f9f9f9; border-color: rgba(0,0,0,0.2); }
+        body.light-theme .product-card:hover .product-title { color: #000; }
+        
+        body.light-theme .dealer-card { background: #fff; border: 1px solid rgba(0,0,0,0.1); }
+        body.light-theme .dealer-card:hover { background: #fafafa; border-color: #f39c12; }
+        body.light-theme .dealer-logo { filter: grayscale(100%) invert(1) opacity(0.8); }
+        body.light-theme .dealer-card:hover .dealer-logo { filter: grayscale(0%) invert(0) opacity(1); transform: scale(1.05); }
+        
+        body.light-theme .champions-section::after { background: radial-gradient(circle at center, transparent 0%, #fff 90%); }
+        
+        /* New Glassmorphism Trust Section Light Theme Overrides */
+        body.light-theme .trust-section { background: #fdfbfb; }
+        body.light-theme .trust-card { background: rgba(255, 255, 255, 0.45); border: 1px solid rgba(255, 255, 255, 0.8); box-shadow: 0 10px 40px rgba(31, 38, 135, 0.05); }
+        body.light-theme .trust-card:hover { background: rgba(255, 255, 255, 0.65); box-shadow: 0 20px 50px rgba(31, 38, 135, 0.1); }
+        body.light-theme .trust-title { color: #2d3436; }
+        body.light-theme .trust-desc { color: #636e72; }
+
+        body.light-theme .footer-heading { color: #000; }
+        body.light-theme .footer-address, body.light-theme .newsletter-desc, body.light-theme .footer-links a, body.light-theme .footer-bottom { color: #555; }
+        body.light-theme .footer-contact-links a { color: #333; }
+        body.light-theme .footer-logo { filter: grayscale(20%) invert(1); }
+        body.light-theme .newsletter-input { color: #000; border-bottom: 1px solid rgba(0,0,0,0.2); }
+        body.light-theme .newsletter-input::placeholder { color: #888; }
+        body.light-theme .subscribe-btn { background: #000; color: #fff; }
+        body.light-theme .subscribe-btn:hover { background: #f39c12; }
+        
+        body.light-theme .nav-btn, body.light-theme .ctrl-btn { background: rgba(255,255,255,0.9); color: #000; border-color: rgba(0,0,0,0.2); }
+        body.light-theme .nav-btn:hover, body.light-theme .ctrl-btn:hover { background: #000; color: #fff; }
+        body.light-theme .view-all-content { color: #000; border-color: #000; }
+        body.light-theme .view-all-content:hover { background: #000; color: #fff; }
+
+        /* =========================================
+           FULL PAGE DARK/LIGHT MODE FIX
+           ========================================= */
+
+        /* 1. Set Default (Dark Mode) for Main Body, Sidebar, and Products */
+        body { 
+            background-color: #121212; 
+            color: #e0e0e0; 
+        }
+        
+        .sidebar { 
+            background: #1a1a1a; 
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+        .sidebar h3 { color: #ffffff; }
+        .category-list > li { color: #aaaaaa; border-bottom: 1px solid #2a2a2a; }
+        .category-list > li:hover, .category-list > li.active { color: #f39c12; }
+        
+        .product-card { 
+            background: #1a1a1a; 
+            border: 1px solid #2a2a2a; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+        }
+        .img-container { background-color: #222; }
+        .product-name { color: #ffffff; }
+        .category-tag { color: #aaaaaa; }
+        .btn-view { color: #e0e0e0; border-color: #e0e0e0; }
+        .btn-view:hover { background: #f39c12; color: #111; border-color: #f39c12; }
+
+        @media (max-width: 850px) {
+            .category-list > li { border: 1px solid #333; }
+        }
+
+        /* 2. Light Theme Overrides for Main Body, Sidebar, and Products */
+        body.light-theme { 
+            background-color: #f4f4f4; 
+            color: #222222; 
+        }
+        
+        body.light-theme .sidebar { 
+            background: #ffffff; 
+            border: 1px solid #eeeeee; 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04); 
+        }
+        body.light-theme .sidebar h3 { color: #111111; }
+        body.light-theme .category-list > li { color: #777777; border-bottom: 1px solid #eeeeee; }
+        body.light-theme .category-list > li:hover, body.light-theme .category-list > li.active { color: #d32f2f; background: transparent; padding-left: 10px; }
+        
+        body.light-theme .product-card { 
+            background: #ffffff; 
+            border: 1px solid #f0f0f0; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+        }
+        body.light-theme .img-container { background-color: #eaeaea; }
+        body.light-theme .product-name { color: #111111; }
+        body.light-theme .category-tag { color: #777777; }
+        body.light-theme .btn-view { color: #111111; border-color: #111111; }
+        body.light-theme .btn-view:hover { background: #d32f2f; color: #ffffff; border-color: #d32f2f; }
+        body:not(.light-theme) .nav-logo {filter: invert(1); mix-blend-mode: screen; }
+
+        @media (max-width: 850px) {
+            body.light-theme .category-list > li { border: 1px solid #ddd; }
+            body.light-theme .category-list > li:hover, body.light-theme .category-list > li.active { background: #d32f2f; color: #ffffff; padding-left: 15px; }
+        }
+
+        @media (max-width: 1024px) {
+    .nav-links.mobile-active {
+        z-index: 999; /* Higher than sidebar */
+        display: flex !important; /* Force visibility */
+    }
+    
+    .sidebar {
+        z-index: 10; /* Lower than nav */
+    }
+}
+
+/* =========================================
+   Floating WhatsApp Button
+   ========================================= */
+.floating-wa-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.floating-wa-btn svg {
+    width: 32px;
+    height: 32px;
+}
+
+.floating-wa-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    background-color: #20b858;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+    color: #fff;
+}
+
+/* Make it slightly smaller on mobile to save screen space */
+@media (max-width: 768px) {
+    .floating-wa-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    .floating-wa-btn svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+    </style>
+</head>
+<body>
+      <button class="theme-toggle-btn" id="themeToggleBtn">☀️</button>
+
+    <a href="https://wa.me/+919850987707" target="_blank" class="floating-wa-btn" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 0C5.385 0 0 5.386 0 12.035c0 2.126.553 4.2 1.603 6.03L.084 24l6.096-1.594A11.963 11.963 0 0012.031 24c6.645 0 12.034-5.386 12.034-12.035C24.065 5.386 18.676 0 12.031 0zm0 22.015c-1.802 0-3.565-.484-5.112-1.398l-.367-.217-3.8.993 1.01-3.705-.238-.38a9.98 9.98 0 01-1.528-5.342c0-5.518 4.49-10.01 10.035-10.01 5.545 0 10.034 4.492 10.034 10.01s-4.489 10.05-10.034 10.05zm5.503-7.525c-.302-.152-1.787-.885-2.064-.987-.276-.1-.477-.152-.678.152-.201.303-.778.987-.954 1.189-.176.202-.352.227-.654.075-1.427-.723-2.584-1.39-3.56-3.08-.176-.304.18-.282.476-.87.1-.2.05-.378-.026-.53-.075-.152-.678-1.636-.928-2.241-.243-.591-.49-.51-.678-.52h-.578c-.201 0-.527.075-.803.378-.276.303-1.054 1.036-1.054 2.525 0 1.49 1.079 2.93 1.23 3.132.15.202 2.134 3.257 5.17 4.567.722.312 1.285.498 1.724.638.724.23 1.383.197 1.903.12.583-.086 1.787-.73 2.038-1.436.251-.707.251-1.313.176-1.437-.075-.126-.276-.202-.578-.354z"/>
+    </svg>
+    </a>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+    <img src="https://sanassportswear.in/sanlogo.jpeg" alt="Sanas Sports Logo" class="nav-logo">
+        </a>
+        <div class="menu-toggle"><span></span><span></span><span></span></div>
+        <ul class="nav-links">
+            <li class="nav-item has-dropdown"><a href="nets.html" class="nav-link">Nets</a>
+                <div class="dropdown">
+                    <a href="/product/3">Volleyball Net</a><a href="/product/2">Cricket Net</a><a href="/product/4">Badminton Net</a><a href="/product/1">Football Net</a><a href="/product/5">Tennis Net</a><a href="/product/6">Basketball Net</a><a href="/product/7">Pickleball Net</a><a href="/product/8">Rugby Net</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="bags.html" class="nav-link">Bags</a>
+                <div class="dropdown wide">
+                    <a href="/product/101">Cricket Bag</a><a href="/product/102">Multi-Back Bag</a><a href="/product/103">Multi-Wheel Bag</a><a href="/product/105">Multi-Sport Bag</a><a href="/product/104">Badminton Kit Bag</a><a href="/product/106">Tennis kit Bag</a><a href="/product/107">Racket covers</a><a href="/product/108">Drawstring Bag</a><a href="/product/109">Hockey Bag</a><a href="/product/111">Ball Carry Bag</a><a href="/product/112">Yogamat Cover</a><a href="/product/114">Shoe Carry Bag</a><a href="/product/113">Swimming Bag</a><a href="/product/115">Ankle Weight Bands</a><a href="/product/110">Skate Bag</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="cricket.html" class="nav-link">Cricket</a>
+                <div class="dropdown">
+                    <a href="/product/201">PVC Bat</a><a href="/product/202">Cricket Ball</a><a href="/product/203">Battaps</a><a href="/product/204">Halmate</a><a href="/product/205">Batgrip</a><a href="/product/206">Caps and Hats</a><a href="/product/207">Accessories</a><a href="/product/208">Inner Gloves</a><a href="/product/212">Stumps</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="badminton.html" class="nav-link">Badminton</a>
+                <div class="dropdown">
+                    <a href="/product/301">Rackets</a><a href="/product/302">Socks</a><a href="/product/303">Shoes</a><a href="/product/304">Shutle</a><a href="/product/305">Bag</a><a href="/product/306">String</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="accessories.html" class="nav-link">Accessories</a>
+                <div class="dropdown">
+                    <a href="/product/401">Carrom Coins</a><a href="/product/402">Basketball Boards</a><a href="/product/403">Hockey Ball</a><a href="/product/404">Base Ball</a><a href="/product/405">Sports Whistle</a><a href="/product/406">Cones and Agility</a><a href="/product/407">Yoga Mat</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="fitness.html" class="nav-link">Fitness</a>
+                <div class="dropdown wide">
+                    <a href="/product/502">Gym Belts</a><a href="/product/501">Sports Gloves</a><a href="/product/503">Wrist Support</a><a href="/product/505">Elbow Support</a><a href="/product/506">Ankle Support</a><a href="/product/508">Sun Visor</a><a href="/product/509">Thigh Support</a><a href="/product/510">Waist Support</a><a href="/product/511">Finger Support</a><a href="/product/512">Football Socks</a><a href="/product/513">Sports Socks</a><a href="/product/514">Skipping Ropes</a><a href="/product/516">Power Grip</a><a href="/product/515">Chase Board</a><a href="/product/517">Boxing Kit</a><a href="#">Gym Dumbbell</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Sports Bags</h1>
+            <p class="hero-subtitle">Premium athletic bags designed for durability, convenience, and maximum storage. Find the perfect fit for your game.</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+        
+        <aside class="sidebar">
+            <h3>Categories</h3>
+            <ul class="category-list" id="category-filters">
+                <li class="active" data-filter="all">All Bags</li>
+                <li data-filter="Cricket Bag">Cricket Bag</li>
+                <li data-filter="Multi-Back Bag">Multi-Back Bag</li>
+                <li data-filter="Multi-Wheel Bag">Multi-Wheel Bag</li>
+                <li data-filter="Multi-Sport Bag">Multi-Sport Bag</li>
+                <li data-filter="Badminton Kit Bag">Badminton Kit Bag</li>
+                <li data-filter="Tennis kit Bag">Tennis kit Bag</li>
+                <li data-filter="Racket covers">Racket covers</li>
+                <li data-filter="Drawstring Bag">Drawstring Bag</li>
+                <li data-filter="Hockey Bag">Hockey Bag</li>
+                <li data-filter="Ball Carry Bag">Ball Carry Bag</li>
+                <li data-filter="Yogamat Cover">Yogamat Cover</li>
+                <li data-filter="Shoe Carry Bag">Shoe Carry Bag</li>
+                <li data-filter="Swimming Bag">Swimming Bag</li>
+                <li data-filter="Ankle Weight Bands">Ankle Weight Bands</li>
+                <li data-filter="Skate Bag">Skate Bag</li>
+            </ul>
+        </aside>
+
+        <main class="product-grid" id="product-grid">
+            
+            <div class="product-card" data-category="Cricket Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=600&auto=format&fit=crop" alt="Cricket Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Cricket Bag</span>
+                    <h4 class="product-name">Pro Cricket Kit Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Multi-Back Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&auto=format&fit=crop" alt="Multi-Back Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Multi-Back Bag</span>
+                    <h4 class="product-name">Multi-Back Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Multi-Wheel Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1553531889-e6cf4d692b1b?q=80&w=600&auto=format&fit=crop" alt="Multi-Wheel Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Multi-Wheel Bag</span>
+                    <h4 class="product-name">Heavy Duty Wheel Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Multi-Sport Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=600&auto=format&fit=crop" alt="Multi-Sport Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Multi-Sport Bag</span>
+                    <h4 class="product-name">Classic Gym Duffle</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Badminton Kit Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop" alt="Badminton Kit Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Badminton Kit Bag</span>
+                    <h4 class="product-name">Tournament Badminton Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Tennis kit Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=600&auto=format&fit=crop" alt="Tennis kit Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Tennis kit Bag</span>
+                    <h4 class="product-name">Pro Tennis Kit Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Racket covers">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1611346387814-25cb48df7409?q=80&w=600&auto=format&fit=crop" alt="Racket covers" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Racket covers</span>
+                    <h4 class="product-name">Thermal Racket Cover</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Drawstring Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop" alt="Drawstring Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Drawstring Bag</span>
+                    <h4 class="product-name">Lightweight Drawstring</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Hockey Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=600&auto=format&fit=crop" alt="Hockey Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Hockey Bag</span>
+                    <h4 class="product-name">Field Hockey Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Ball Carry Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1518605368461-1e1252220a4c?q=80&w=600&auto=format&fit=crop" alt="Ball Carry Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Ball Carry Bag</span>
+                    <h4 class="product-name">Mesh Ball Carry Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Yogamat Cover">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1600881333168-2ef49b341f30?q=80&w=600&auto=format&fit=crop" alt="Yogamat Cover" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Yogamat Cover</span>
+                    <h4 class="product-name">Yoga Mat Carrier</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Shoe Carry Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" alt="Shoe Carry Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Shoe Carry Bag</span>
+                    <h4 class="product-name">Ventilated Shoe Carrier</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Swimming Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?q=80&w=600&auto=format&fit=crop" alt="Swimming Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Swimming Bag</span>
+                    <h4 class="product-name">Waterproof Swim Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Ankle Weight Bands">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=600&auto=format&fit=crop" alt="Ankle Weight Bands" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Ankle Weight Bands</span>
+                    <h4 class="product-name">Fitness Weight Bands</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="Skate Bag">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?q=80&w=600&auto=format&fit=crop" alt="Skate Bag" class="product-image">
+                </div>
+                <div class="product-info">
+                    <span class="category-tag">Skate Bag</span>
+                    <h4 class="product-name">Inline Skate Carry Bag</h4>
+                    <button class="btn-view">View Details</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-accent-line"></div>
+        <div class="footer-container">
+            <div class="footer-col">
+               <a href="index.html"> <img src="https://sanassportswear.in/sanlogo.jpeg" alt="Sanas Sports Logo" class="footer-logo"></a>
+                <p class="footer-address">
+                    Sanas Sports Wear<br>
+                    Shree Chintamani Nagar, Shop No.1/2<br>
+                    Near Ekalavya College, New DP Road<br>
+                    Kothrud Depo, Pune 411038
+                </p>
+                <div class="footer-contact-links">
+                    <a href="mailto:info@sanassports.com">✉ info@sanassports.com</a>
+                    <a href="tel:9730317132">📞 9730317132</a>
+                </div>
+                <div class="wa-buttons">
+                    <a href="https://wa.me/+919850987707" target="_blank" class="wa-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.386 0 12.035c0 2.126.553 4.2 1.603 6.03L.084 24l6.096-1.594A11.963 11.963 0 0012.031 24c6.645 0 12.034-5.386 12.034-12.035C24.065 5.386 18.676 0 12.031 0zm0 22.015c-1.802 0-3.565-.484-5.112-1.398l-.367-.217-3.8.993 1.01-3.705-.238-.38a9.98 9.98 0 01-1.528-5.342c0-5.518 4.49-10.01 10.035-10.01 5.545 0 10.034 4.492 10.034 10.01s-4.489 10.05-10.034 10.05zm5.503-7.525c-.302-.152-1.787-.885-2.064-.987-.276-.1-.477-.152-.678.152-.201.303-.778.987-.954 1.189-.176.202-.352.227-.654.075-1.427-.723-2.584-1.39-3.56-3.08-.176-.304.18-.282.476-.87.1-.2.05-.378-.026-.53-.075-.152-.678-1.636-.928-2.241-.243-.591-.49-.51-.678-.52h-.578c-.201 0-.527.075-.803.378-.276.303-1.054 1.036-1.054 2.525 0 1.49 1.079 2.93 1.23 3.132.15.202 2.134 3.257 5.17 4.567.722.312 1.285.498 1.724.638.724.23 1.383.197 1.903.12.583-.086 1.787-.73 2.038-1.436.251-.707.251-1.313.176-1.437-.075-.126-.276-.202-.578-.354z"/></svg>Retailer
+                    </a>
+                    <a href="https://wa.me/+919545007132" target="_blank" class="wa-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.386 0 12.035c0 2.126.553 4.2 1.603 6.03L.084 24l6.096-1.594A11.963 11.963 0 0012.031 24c6.645 0 12.034-5.386 12.034-12.035C24.065 5.386 18.676 0 12.031 0zm0 22.015c-1.802 0-3.565-.484-5.112-1.398l-.367-.217-3.8.993 1.01-3.705-.238-.38a9.98 9.98 0 01-1.528-5.342c0-5.518 4.49-10.01 10.035-10.01 5.545 0 10.034 4.492 10.034 10.01s-4.489 10.05-10.034 10.05zm5.503-7.525c-.302-.152-1.787-.885-2.064-.987-.276-.1-.477-.152-.678.152-.201.303-.778.987-.954 1.189-.176.202-.352.227-.654.075-1.427-.723-2.584-1.39-3.56-3.08-.176-.304.18-.282.476-.87.1-.2.05-.378-.026-.53-.075-.152-.678-1.636-.928-2.241-.243-.591-.49-.51-.678-.52h-.578c-.201 0-.527.075-.803.378-.276.303-1.054 1.036-1.054 2.525 0 1.49 1.079 2.93 1.23 3.132.15.202 2.134 3.257 5.17 4.567.722.312 1.285.498 1.724.638.724.23 1.383.197 1.903.12.583-.086 1.787-.73 2.038-1.436.251-.707.251-1.313.176-1.437-.075-.126-.276-.202-.578-.354z"/></svg>Manufacturer
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links"><li><a href="/about">About Us</a></li></ul>
+                <h4 class="footer-heading mt-4">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact us</a></li><li><a href="/faq">FAQ</a></li>
+                    <li><a href="/refund-policy">Refund Policy</a></li><li><a href="/shipping-policy">Shipping Policy</a></li><li><a href="/terms">Terms of Policies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Stay in Touch</h4>
+                <p class="newsletter-desc">Join our community and stay in the know about new collections, outfit inspiration, sales, and more.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Sanas Sports Wear. All rights reserved.</div>
+            <div>Designed by DW Innovation Pvt.Ltd</div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Initial Page Load Animations
+            gsap.from(".hero-content", { y: 40, opacity: 0, duration: 0.8, ease: "power3.out" });
+            gsap.from(".sidebar", { x: -30, opacity: 0, duration: 0.6, ease: "power2.out", delay: 0.2 });
+
+            // 2. Product Load (ScrollTrigger) - Runs ONLY ONCE to avoid disturbing filtering
+            ScrollTrigger.create({
+                trigger: ".product-grid",
+                start: "top 85%",
+                once: true,
+                animation: gsap.from(".product-card", {
+                    y: 40, opacity: 0, duration: 0.5, stagger: 0.1, ease: "power2.out"
+                })
+            });
+
+            // 3. Image Hover
+            const productCards = document.querySelectorAll(".product-card");
+            productCards.forEach(card => {
+                const image = card.querySelector(".product-image");
+                card.addEventListener("mouseenter", () => {
+                    gsap.to(image, { scale: 1.08, duration: 0.5, ease: "power2.out", overwrite: "auto" });
+                });
+                card.addEventListener("mouseleave", () => {
+                    gsap.to(image, { scale: 1, duration: 0.5, ease: "power2.out", overwrite: "auto" });
+                });
+            });
+
+           // 4. Category Filtering (Flawless Transitions)
+const filterButtons = document.querySelectorAll('.category-list li');
+const productGrid = document.getElementById('product-grid');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Prevent clicking if animation is currently running
+        if (gsap.isTweening(".product-card")) return;
+
+        const filterValue = button.getAttribute('data-filter');
+
+        // UI: Update Active Class
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Select all cards
+        const allCards = document.querySelectorAll('.product-card');
+        
+        // Phase 1: Animate all visible cards out
+        gsap.to(allCards, {
+            opacity: 0,
+            y: 20,
+            scale: 0.95,
+            duration: 0.3,
+            stagger: 0.02,
+            onComplete: () => {
+                // Phase 2: Hide all, then show only matching
+                allCards.forEach(card => {
+                    card.style.display = 'none';
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    }
+                });
+
+                // Phase 3: Animate matching cards in
+                const matchingCards = document.querySelectorAll(`.product-card[style*="display: flex"]`);
+                
+                if (matchingCards.length > 0) {
+                    gsap.fromTo(matchingCards, 
+                        { opacity: 0, y: 20, scale: 0.95 },
+                        { 
+                            opacity: 1, 
+                            y: 0, 
+                            scale: 1, 
+                            duration: 0.4, 
+                            stagger: 0.05, 
+                            ease: "power2.out" 
+                        }
+                    );
+                }
+                
+                // Refresh ScrollTrigger so positions are recalculated
+                ScrollTrigger.refresh();
+            }
+        });
+    });
+});
+            
+
+            /* =========================================
+            NAVBAR SCRIPT LOGIC
+            ========================================= */
+            gsap.from(".navbar", { y: -100, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
+
+            const navItems = document.querySelectorAll('.has-dropdown');
+            navItems.forEach(item => {
+                const dropdown = item.querySelector('.dropdown');
+                item.addEventListener('mouseenter', () => {
+                    if(window.innerWidth > 1024) {
+                        gsap.to(dropdown, { opacity: 1, visibility: 'visible', y: 10, duration: 0.3, ease: "power2.out", pointerEvents: 'all', overwrite: true });
+                    }
+                });
+                item.addEventListener('mouseleave', () => {
+                    if(window.innerWidth > 1024) {
+                        gsap.to(dropdown, { opacity: 0, visibility: 'hidden', y: 0, duration: 0.2, ease: "power2.in", pointerEvents: 'none', overwrite: true });
+                    }
+                });
+            });
+
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const links = document.querySelectorAll('.nav-item');
+            let isMenuOpen = false;
+
+            menuToggle.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if(isMenuOpen) {
+                    navLinks.classList.add('mobile-active');
+                    gsap.fromTo(links, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: "power3.out", overwrite: true });
+                    gsap.to(menuToggle.children[0], { y: 8, rotation: 45, duration: 0.3, overwrite: true });
+                    gsap.to(menuToggle.children[1], { opacity: 0, duration: 0.3, overwrite: true });
+                    gsap.to(menuToggle.children[2], { y: -8, rotation: -45, duration: 0.3, overwrite: true });
+                } else {
+                    gsap.to(links, { 
+                        y: -20, opacity: 0, duration: 0.3, stagger: 0.02, ease: "power2.in", overwrite: true,
+                        onComplete: () => { navLinks.classList.remove('mobile-active'); gsap.set(links, { clearProps: "all" }); }
+                    });
+                    gsap.to(menuToggle.children[0], { y: 0, rotation: 0, duration: 0.3, overwrite: true });
+                    gsap.to(menuToggle.children[1], { opacity: 1, duration: 0.3, overwrite: true });
+                    gsap.to(menuToggle.children[2], { y: 0, rotation: 0, duration: 0.3, overwrite: true });
+                }
+            });
+
+          navItems.forEach(item => {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    
+    link.addEventListener('click', (e) => {
+        if(window.innerWidth <= 1024) {
+            // Check if this specific dropdown is already open
+            const isOpen = dropdown.style.display === 'grid' || dropdown.style.display === 'block';
+            
+            // If it is NOT open, prevent navigation and open the dropdown first
+            if(!isOpen) {
+                e.preventDefault(); 
+                
+                // Close all other dropdowns
+                document.querySelectorAll('.dropdown').forEach(d => { 
+                    d.style.display = 'none'; 
+                    gsap.set(d, { opacity: 0, visibility: 'hidden', pointerEvents: 'none' });
+                });
+
+                // Open the clicked one
+                dropdown.style.display = dropdown.classList.contains('wide') ? 'grid' : 'block';
+                gsap.fromTo(dropdown, 
+                    { height: 0, opacity: 0 }, 
+                    { 
+                        height: "auto", 
+                        opacity: 1, 
+                        visibility: 'visible',
+                        pointerEvents: 'all',
+                        duration: 0.4, 
+                        ease: "power2.out", 
+                        overwrite: true 
+                    }
+                );
+            }
+            // If it IS already open, we skip e.preventDefault().
+            // The browser will naturally navigate to the link (e.g., href="nets.html").
+        }
+    });
+});
+            /* =========================================
+            FOOTER SCRIPT LOGIC
+            ========================================= */
+            const footerTl = gsap.timeline({
+                scrollTrigger: { trigger: ".site-footer", start: "top 85%", toggleActions: "play none none reverse" }
+            });
+
+            footerTl.to(".footer-accent-line", { scaleX: 1, duration: 0.8, ease: "power3.inOut" })
+                    .to(".footer-col", { y: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out" }, "-=0.4")
+                    .to(".footer-bottom", { opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.2");
+        });
+
+         /* =========================================
+           THEME TOGGLE & LOCAL STORAGE LOGIC (NEW CODE)
+           ========================================= */
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+        // 1. Check local storage when the page loads
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-theme');
+            themeToggleBtn.innerHTML = '🌙'; 
+        }
+
+        // 2. Toggle theme and save choice to local storage
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            
+            if (document.body.classList.contains('light-theme')) {
+                themeToggleBtn.innerHTML = '🌙'; 
+                localStorage.setItem('theme', 'light'); // Save to memory
+            } else {
+                themeToggleBtn.innerHTML = '☀️'; 
+                localStorage.setItem('theme', 'dark');  // Save to memory
+            }
+        });
+
+    </script>
+</body>
+</html>

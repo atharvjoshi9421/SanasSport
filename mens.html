@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Sportswear | Sanas Sportswear</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="stylesheet" href="style_css/mens.css">
+</head>
+<body>
+    <div id="scroll-nav">
+    <button onclick="scrollToTop()" id="topBtn" title="Go to top">▲</button>
+    <button onclick="scrollToBottom()" id="bottomBtn" title="Go to bottom">▼</button>
+    </div>
+
+     <button class="theme-toggle-btn" id="themeToggleBtn">☀️</button>
+
+     <a href="https://wa.me/+919850987707" target="_blank" class="floating-wa-btn" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 0C5.385 0 0 5.386 0 12.035c0 2.126.553 4.2 1.603 6.03L.084 24l6.096-1.594A11.963 11.963 0 0012.031 24c6.645 0 12.034-5.386 12.034-12.035C24.065 5.386 18.676 0 12.031 0zm0 22.015c-1.802 0-3.565-.484-5.112-1.398l-.367-.217-3.8.993 1.01-3.705-.238-.38a9.98 9.98 0 01-1.528-5.342c0-5.518 4.49-10.01 10.035-10.01 5.545 0 10.034 4.492 10.034 10.01s-4.489 10.05-10.034 10.05zm5.503-7.525c-.302-.152-1.787-.885-2.064-.987-.276-.1-.477-.152-.678.152-.201.303-.778.987-.954 1.189-.176.202-.352.227-.654.075-1.427-.723-2.584-1.39-3.56-3.08-.176-.304.18-.282.476-.87.1-.2.05-.378-.026-.53-.075-.152-.678-1.636-.928-2.241-.243-.591-.49-.51-.678-.52h-.578c-.201 0-.527.075-.803.378-.276.303-1.054 1.036-1.054 2.525 0 1.49 1.079 2.93 1.23 3.132.15.202 2.134 3.257 5.17 4.567.722.312 1.285.498 1.724.638.724.23 1.383.197 1.903.12.583-.086 1.787-.73 2.038-1.436.251-.707.251-1.313.176-1.437-.075-.126-.276-.202-.578-.354z"/>
+    </svg>
+    </a>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+    <img src="https://sanassportswear.in/sanlogo.jpeg" alt="Sanas Sports Logo" class="nav-logo">
+        </a>
+        <div class="menu-toggle"><span></span><span></span><span></span></div>
+        <ul class="nav-links">
+            <li class="nav-item has-dropdown"><a href="nets.html" class="nav-link">Nets</a>
+                <div class="dropdown">
+                    <a href="nets.html">Volleyball Net</a><a href="nets.html">Cricket Net</a><a href="nets.html">Badminton Net</a><a href="nets.html">Football Net</a><a href="nets.html">Tennis Net</a><a href="nets.html">Basketball Net</a><a href="nets.html">Pickleball Net</a><a href="nets.html">Rugby Net</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="bags.html" class="nav-link">Bags</a>
+                <div class="dropdown wide">
+                    <a href="bags.html">Cricket Bag</a><a href="bags.html">Multi-Back Bag</a><a href="bags.html">Multi-Wheel Bag</a><a href="bags.html">Multi-Sport Bag</a><a href="bags.html">Badminton Kit Bag</a><a href="bags.html">Tennis kit Bag</a><a href="bags.html">Racket covers</a><a href="bags.html">Drawstring Bag</a><a href="bags.html">Hockey Bag</a><a href="bags.html">Ball Carry Bag</a><a href="bags.html">Yogamat Cover</a><a href="bags.html">Shoe Carry Bag</a><a href="bags.html">Swimming Bag</a><a href="bags.html">Ankle Weight Bands</a><a href="bags.html">Skate Bag</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="cricket.html" class="nav-link">Cricket</a>
+                <div class="dropdown">
+                    <a href="cricket.html">PVC Bat</a><a href="cricket.html">Cricket Ball</a><a href="cricket.html">Battaps</a><a href="cricket.html">Halmate</a><a href="cricket.html">Batgrip</a><a href="cricket.html">Caps and Hats</a><a href="cricket.html">Accessories</a><a href="cricket.html">Inner Gloves</a><a href="cricket.html">Stumps</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="badminton.html" class="nav-link">Badminton</a>
+                <div class="dropdown">
+                    <a href="badminton.html">Rackets</a><a href="badminton.html">Socks</a><a href="badminton.html">Shoes</a><a href="badminton.html">Shutle</a><a href="badminton.html">Bag</a><a href="badminton.html">String</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="accessories.html" class="nav-link">Accessories</a>
+                <div class="dropdown">
+                    <a href="accessories.html">Carrom Coins</a><a href="accessories.html">Basketball Boards</a><a href="accessories.html">Hockey Ball</a><a href="accessories.html">Base Ball</a><a href="accessories.html">Sports Whistle</a><a href="accessories.html">Cones and Agility</a><a href="accessories.html">Yoga Mat</a>
+                </div>
+            </li>
+            <li class="nav-item has-dropdown"><a href="fitness.html" class="nav-link">Fitness</a>
+                <div class="dropdown wide">
+                    <a href="fitness.html">Gym Belts</a><a href="fitness.html">Sports Gloves</a><a href="fitness.html">Wrist Support</a><a href="fitness.html">Elbow Support</a><a href="fitness.html">Ankle Support</a><a href="fitness.html">Sun Visor</a><a href="fitness.html">Thigh Support</a><a href="fitness.html">Waist Support</a><a href="fitness.html">Finger Support</a><a href="fitness.html">Football Socks</a><a href="fitness.html">Sports Socks</a><a href="fitness.html">Skipping Ropes</a><a href="fitness.html">Power Grip</a><a href="fitness.html">Chase Board</a><a href="fitness.html">Boxing Kit</a><a href="#">Gym Dumbbell</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header class="mens-hero">
+        <div class="hero-text-box">
+            <span class="hero-tag gsap-m-elem">Performance Series</span>
+            <h1 class="gsap-m-elem">Dominate <br>Every Workout.</h1>
+        </div>
+    </header>
+
+    <div class="mens-filters gsap-m-elem">
+        <button class="m-filter active-f">All Apparel</button>
+        <button class="m-filter">T-Shirts</button>
+        <button class="m-filter">Shorts</button>
+        <button class="m-filter">Pants & Joggers</button>
+        <button class="m-filter">Socks & Accessories</button>
+    </div>
+
+    <main class="mens-grid">
+        
+        <div class="mens-card gsap-m-card">
+            <span class="m-tag">Core</span>
+            <div class="m-img-box">
+                <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80" alt="Men's Dri-Fit T-Shirt">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Shirts</span>
+                <h3 class="m-title">Pro-Dry Training T-Shirt</h3>
+                <span class="m-price">₹ 699</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <span class="m-tag" style="background: #dc2626; color: #fff;">New</span>
+            <div class="m-img-box">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.Sq-lCCZ_A9ykj8qSQq_d9gHaHa?pid=Api&P=0&h=180" alt="Men's Athletic Shorts">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Shorts</span>
+                <h3 class="m-title">Aero-Flex Gym Shorts</h3>
+                <span class="m-price">₹ 549</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <div class="m-img-box">
+                <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=600&q=80" alt="Men's Track Pants">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Pants & Joggers</span>
+                <h3 class="m-title">Elite Performance Trackpant</h3>
+                <span class="m-price">₹ 999</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <span class="m-tag">Pack of 3</span>
+            <div class="m-img-box">
+                <img src="https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&w=600&q=80" alt="Men's Athletic Socks">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Socks</span>
+                <h3 class="m-title">Cushioned Crew Socks</h3>
+                <span class="m-price">₹ 349</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <span class="m-tag" style="background: #dc2626; color: #fff;">Top Rated</span>
+            <div class="m-img-box">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.FOQaSXypd0hDIwRUf5Q6PAHaHa?pid=Api&P=0&h=180" alt="Men's Compression Shirt">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Shirts</span>
+                <h3 class="m-title">Base-Layer Compression Top</h3>
+                <span class="m-price">₹ 849</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <div class="m-img-box">
+                <img src="https://sp.yimg.com/ib/th?id=OPAC.DGQ0%2blGQ7AAR8A474C474&o=5&pid=21.1&w=160&h=105" alt="Men's Joggers">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Pants & Joggers</span>
+                <h3 class="m-title">Urban Tech Joggers</h3>
+                <span class="m-price">₹ 1,199</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <div class="m-img-box">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.BK6b-8dBR5IXVne9EEYERgHaHa?pid=Api&P=0&h=180" alt="Men's Training Tank">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Shirts</span>
+                <h3 class="m-title">Weightlifting Stringer Tank</h3>
+                <span class="m-price">₹ 499</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <span class="m-tag">Weather Proof</span>
+            <div class="m-img-box">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.G9b3g-ZArAYHy7X6T6NPuwHaJo?pid=Api&P=0&h=180" alt="Men's Running Jacket">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Outerwear</span>
+                <h3 class="m-title">Lightweight Running Windbreaker</h3>
+                <span class="m-price">₹ 1,499</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <div class="m-img-box">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.P_xRn_xYhAwoID6JbxWpwAHaHa?pid=Api&P=0&h=180" alt="Men's 2-in-1 Shorts">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Shorts</span>
+                <h3 class="m-title">2-in-1 Compression Shorts</h3>
+                <span class="m-price">₹ 799</span>
+            </div>
+        </div>
+
+        <div class="mens-card gsap-m-card">
+            <div class="m-img-box">
+                <img src="https://images.unsplash.com/photo-1586525198428-225f6f12cff5?auto=format&fit=crop&w=600&q=80" alt="Men's Ankle Socks">
+                <div class="m-quick-add">Add to Cart</div>
+            </div>
+            <div class="m-info">
+                <span class="m-cat">Socks</span>
+                <h3 class="m-title">No-Show Ankle Socks (Pack of 5)</h3>
+                <span class="m-price">₹ 449</span>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-accent-line"></div>
+        <div class="footer-container">
+            <div class="footer-col">
+               <a href="index.html"> <img src="https://sanassportswear.in/sanlogo.jpeg" alt="Sanas Sports Logo" class="footer-logo"></a>
+                <p class="footer-address">
+                    Sanas Sports Wear<br>
+                    Shree Chintamani Nagar, Shop No.1/2<br>
+                    Near Ekalavya College, New DP Road<br>
+                    Kothrud Depo, Pune 411038
+                </p>
+                <div class="footer-contact-links">
+                    <a href="mailto:info@sanassports.com">✉ info@sanassports.com</a>
+                    <a href="tel:9730317132">📞 9730317132</a>
+                </div>
+                <div class="wa-buttons">
+                    <a href="https://wa.me/+919850987707" target="_blank" class="wa-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.386 0 12.035c0 2.126.553 4.2 1.603 6.03L.084 24l6.096-1.594A11.963 11.963 0 0012.031 24c6.645 0 12.034-5.386 12.034-12.035C24.065 5.386 18.676 0 12.031 0zm0 22.015c-1.802 0-3.565-.484-5.112-1.398l-.367-.217-3.8.993 1.01-3.705-.238-.38a9.98 9.98 0 01-1.528-5.342c0-5.518 4.49-10.01 10.035-10.01 5.545 0 10.034 4.492 10.034 10.01s-4.489 10.05-10.034 10.05zm5.503-7.525c-.302-.152-1.787-.885-2.064-.987-.276-.1-.477-.152-.678.152-.201.303-.778.987-.954 1.189-.176.202-.352.227-.654.075-1.427-.723-2.584-1.39-3.56-3.08-.176-.304.18-.282.476-.87.1-.2.05-.378-.026-.53-.075-.152-.678-1.636-.928-2.241-.243-.591-.49-.51-.678-.52h-.578c-.201 0-.527.075-.803.378-.276.303-1.054 1.036-1.054 2.525 0 1.49 1.079 2.93 1.23 3.132.15.202 2.134 3.257 5.17 4.567.722.312 1.285.498 1.724.638.724.23 1.383.197 1.903.12.583-.086 1.787-.73 2.038-1.436.251-.707.251-1.313.176-1.437-.075-.126-.276-.202-.578-.354z"/></svg>Retailer
+                    </a>
+                    <a href="https://wa.me/+919545007132" target="_blank" class="wa-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 0C5.385 0 0 5.386 0 12.035c0 2.126.553 4.2 1.603 6.03L.084 24l6.096-1.594A11.963 11.963 0 0012.031 24c6.645 0 12.034-5.386 12.034-12.035C24.065 5.386 18.676 0 12.031 0zm0 22.015c-1.802 0-3.565-.484-5.112-1.398l-.367-.217-3.8.993 1.01-3.705-.238-.38a9.98 9.98 0 01-1.528-5.342c0-5.518 4.49-10.01 10.035-10.01 5.545 0 10.034 4.492 10.034 10.01s-4.489 10.05-10.034 10.05zm5.503-7.525c-.302-.152-1.787-.885-2.064-.987-.276-.1-.477-.152-.678.152-.201.303-.778.987-.954 1.189-.176.202-.352.227-.654.075-1.427-.723-2.584-1.39-3.56-3.08-.176-.304.18-.282.476-.87.1-.2.05-.378-.026-.53-.075-.152-.678-1.636-.928-2.241-.243-.591-.49-.51-.678-.52h-.578c-.201 0-.527.075-.803.378-.276.303-1.054 1.036-1.054 2.525 0 1.49 1.079 2.93 1.23 3.132.15.202 2.134 3.257 5.17 4.567.722.312 1.285.498 1.724.638.724.23 1.383.197 1.903.12.583-.086 1.787-.73 2.038-1.436.251-.707.251-1.313.176-1.437-.075-.126-.276-.202-.578-.354z"/></svg>Manufacturer
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links"><li><a href="about.html">About Us</a></li></ul>
+                <h4 class="footer-heading mt-4">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact us</a></li><li><a href="/faq">FAQ</a></li>
+                    <li><a href="/refund-policy">Refund Policy</a></li><li><a href="/shipping-policy">Shipping Policy</a></li><li><a href="/terms">Terms of Policies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Stay in Touch</h4>
+                <p class="newsletter-desc">Join our community and stay in the know about new collections, outfit inspiration, sales, and more.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Sanas Sports Wear. All rights reserved.</div>
+            <div>Designed by DW Innovation Pvt.Ltd</div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script_js/mens.js"></script>
+</body>
+</html>
