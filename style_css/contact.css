@@ -73,7 +73,7 @@ body {
     text-align: center;
     /* Added background image with a dark gradient overlay */
     background: linear-gradient(135deg, rgba(15, 17, 21, 0.85) 0%, rgba(9, 10, 12, 0.95) 100%),
-                url('https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+                url('https://media.istockphoto.com/id/1300123069/photo/runners-running-towards-the-finish-line.webp?a=1&b=1&s=612x612&w=0&k=20&c=uZa1EswYn4wrIavX3lZxPjTw1Ux4w3M-llFW-rs-BdE=') center/cover no-repeat;
     border-bottom: 1px solid var(--glass-border);
     background-attachment: fixed; /* Parallax effect */
 }
