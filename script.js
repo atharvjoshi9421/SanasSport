@@ -203,10 +203,6 @@
             y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out"
         });
 
-        gsap.to(".view-all-content", {
-            scrollTrigger: { trigger: ".content-gallery", start: "top 60%", toggleActions: "play none none reverse" },
-            opacity: 1, y: -10, duration: 1, delay: 0.6, ease: "power3.out"
-        });
 
         /* =========================================
            PREMIUM DEALERS SCRIPT LOGIC
@@ -253,23 +249,6 @@
         });
 
          gsap.registerPlugin(ScrollTrigger);
-
-        // A playful, bouncy pop-up effect
-        gsap.from(".trust-card", {
-            scrollTrigger: {
-                trigger: ".trust-section",
-                start: "top 85%", 
-                toggleActions: "play none none reverse"
-            },
-            y: 80,               // Start lower
-            scale: 0.8,          // Start slightly smaller
-            rotation: 5,         // Start slightly tilted
-            opacity: 0,          
-            duration: 1.2,       
-            stagger: 0.15,       
-            ease: "back.out(1.7)", // Gives it a pronounced elastic bounce
-            clearProps: "all"    // Clears GSAP styles after animation so hover states work perfectly
-        });
 
         /* =========================================
            FOOTER SCRIPT LOGIC
