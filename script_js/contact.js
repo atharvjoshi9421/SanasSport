@@ -1,9 +1,9 @@
         // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
- /* =========================================
-           NAVBAR SCRIPT LOGIC
-           ========================================= */
+  /* =========================================
+            NAVBAR SCRIPT LOGIC
+            ========================================= */
         gsap.from(".navbar", { y: -100, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
 
         const navItems = document.querySelectorAll('.has-dropdown');
@@ -48,44 +48,44 @@ gsap.registerPlugin(ScrollTrigger);
         });
 
         navItems.forEach(item => {
-    const link = item.querySelector('.nav-link');
-    const dropdown = item.querySelector('.dropdown');
-    
-    link.addEventListener('click', (e) => {
-        if(window.innerWidth <= 1024) {
-            // Check if this specific dropdown is already open
-            const isOpen = dropdown.style.display === 'grid' || dropdown.style.display === 'block';
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown');
             
-            // If it is NOT open, prevent navigation and open the dropdown first
-            if(!isOpen) {
-                e.preventDefault(); 
-                
-                // Close all other dropdowns
-                document.querySelectorAll('.dropdown').forEach(d => { 
-                    d.style.display = 'none'; 
-                    gsap.set(d, { opacity: 0, visibility: 'hidden', pointerEvents: 'none' });
-                });
+            link.addEventListener('click', (e) => {
+                if(window.innerWidth <= 1024) {
+                    // Check if this specific dropdown is already open
+                    const isOpen = dropdown.style.display === 'grid' || dropdown.style.display === 'block';
+                    
+                    // If it is NOT open, prevent navigation and open the dropdown first
+                    if(!isOpen) {
+                        e.preventDefault(); 
+                        
+                        // Close all other dropdowns
+                        document.querySelectorAll('.dropdown').forEach(d => { 
+                            d.style.display = 'none'; 
+                            gsap.set(d, { opacity: 0, visibility: 'hidden', pointerEvents: 'none' });
+                        });
 
-                // Open the clicked one
-                dropdown.style.display = dropdown.classList.contains('wide') ? 'grid' : 'block';
-                gsap.fromTo(dropdown, 
-                    { height: 0, opacity: 0 }, 
-                    { 
-                        height: "auto", 
-                        opacity: 1, 
-                        visibility: 'visible',
-                        pointerEvents: 'all',
-                        duration: 0.4, 
-                        ease: "power2.out", 
-                        overwrite: true 
+                        // Open the clicked one
+                        dropdown.style.display = dropdown.classList.contains('wide') ? 'grid' : 'block';
+                        gsap.fromTo(dropdown, 
+                            { height: 0, opacity: 0 }, 
+                            { 
+                                height: "auto", 
+                                opacity: 1, 
+                                visibility: 'visible',
+                                pointerEvents: 'all',
+                                duration: 0.4, 
+                                ease: "power2.out", 
+                                overwrite: true 
+                            }
+                        );
                     }
-                );
-            }
-            // If it IS already open, we skip e.preventDefault().
-            // The browser will naturally navigate to the link (e.g., href="nets.html").
-        }
-    });
-});
+                    // If it IS already open, we skip e.preventDefault().
+                    // The browser will naturally navigate to the link (e.g., href="nets.html").
+                }
+            });
+        });
 
 
 document.addEventListener("DOMContentLoaded", () => {

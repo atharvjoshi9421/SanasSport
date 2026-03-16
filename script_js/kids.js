@@ -1,86 +1,88 @@
-   /* =========================================
+  /* =========================================
             NAVBAR SCRIPT LOGIC
             ========================================= */
-            gsap.from(".navbar", { y: -100, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
+        gsap.from(".navbar", { y: -100, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
 
-            const navItems = document.querySelectorAll('.has-dropdown');
-            navItems.forEach(item => {
-                const dropdown = item.querySelector('.dropdown');
-                item.addEventListener('mouseenter', () => {
-                    if(window.innerWidth > 1024) {
-                        gsap.to(dropdown, { opacity: 1, visibility: 'visible', y: 10, duration: 0.3, ease: "power2.out", pointerEvents: 'all', overwrite: true });
-                    }
-                });
-                item.addEventListener('mouseleave', () => {
-                    if(window.innerWidth > 1024) {
-                        gsap.to(dropdown, { opacity: 0, visibility: 'hidden', y: 0, duration: 0.2, ease: "power2.in", pointerEvents: 'none', overwrite: true });
-                    }
-                });
-            });
-
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            const links = document.querySelectorAll('.nav-item');
-            let isMenuOpen = false;
-
-            menuToggle.addEventListener('click', () => {
-                isMenuOpen = !isMenuOpen;
-                if(isMenuOpen) {
-                    navLinks.classList.add('mobile-active');
-                    gsap.fromTo(links, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: "power3.out", overwrite: true });
-                    gsap.to(menuToggle.children[0], { y: 8, rotation: 45, duration: 0.3, overwrite: true });
-                    gsap.to(menuToggle.children[1], { opacity: 0, duration: 0.3, overwrite: true });
-                    gsap.to(menuToggle.children[2], { y: -8, rotation: -45, duration: 0.3, overwrite: true });
-                } else {
-                    gsap.to(links, { 
-                        y: -20, opacity: 0, duration: 0.3, stagger: 0.02, ease: "power2.in", overwrite: true,
-                        onComplete: () => { navLinks.classList.remove('mobile-active'); gsap.set(links, { clearProps: "all" }); }
-                    });
-                    gsap.to(menuToggle.children[0], { y: 0, rotation: 0, duration: 0.3, overwrite: true });
-                    gsap.to(menuToggle.children[1], { opacity: 1, duration: 0.3, overwrite: true });
-                    gsap.to(menuToggle.children[2], { y: 0, rotation: 0, duration: 0.3, overwrite: true });
+        const navItems = document.querySelectorAll('.has-dropdown');
+        navItems.forEach(item => {
+            const dropdown = item.querySelector('.dropdown');
+            item.addEventListener('mouseenter', () => {
+                if(window.innerWidth > 1024) {
+                    gsap.killTweensOf(dropdown);
+                    gsap.to(dropdown, { opacity: 1, visibility: 'visible', y: 10, duration: 0.3, ease: "power2.out", pointerEvents: 'all' });
                 }
             });
+            item.addEventListener('mouseleave', () => {
+                if(window.innerWidth > 1024) {
+                    gsap.killTweensOf(dropdown);
+                    gsap.to(dropdown, { opacity: 0, visibility: 'hidden', y: 0, duration: 0.2, ease: "power2.in", pointerEvents: 'none' });
+                }
+            });
+        });
 
-            navItems.forEach(item => {
-    const link = item.querySelector('.nav-link');
-    const dropdown = item.querySelector('.dropdown');
-    
-    link.addEventListener('click', (e) => {
-        if(window.innerWidth <= 1024) {
-            // Check if this specific dropdown is already open
-            const isOpen = dropdown.style.display === 'grid' || dropdown.style.display === 'block';
-            
-            // If it is NOT open, prevent navigation and open the dropdown first
-            if(!isOpen) {
-                e.preventDefault(); 
-                
-                // Close all other dropdowns
-                document.querySelectorAll('.dropdown').forEach(d => { 
-                    d.style.display = 'none'; 
-                    gsap.set(d, { opacity: 0, visibility: 'hidden', pointerEvents: 'none' });
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-item');
+        let isMenuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                navLinks.classList.add('mobile-active');
+                gsap.fromTo(links, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.05, ease: "power3.out" });
+                gsap.to(menuToggle.children[0], { y: 8, rotation: 45, duration: 0.3 });
+                gsap.to(menuToggle.children[1], { opacity: 0, duration: 0.3 });
+                gsap.to(menuToggle.children[2], { y: -8, rotation: -45, duration: 0.3 });
+            } else {
+                gsap.to(links, { 
+                    y: -20, opacity: 0, duration: 0.3, stagger: 0.02, ease: "power2.in",
+                    onComplete: () => { navLinks.classList.remove('mobile-active'); gsap.set(links, { clearProps: "all" }); }
                 });
-
-                // Open the clicked one
-                dropdown.style.display = dropdown.classList.contains('wide') ? 'grid' : 'block';
-                gsap.fromTo(dropdown, 
-                    { height: 0, opacity: 0 }, 
-                    { 
-                        height: "auto", 
-                        opacity: 1, 
-                        visibility: 'visible',
-                        pointerEvents: 'all',
-                        duration: 0.4, 
-                        ease: "power2.out", 
-                        overwrite: true 
-                    }
-                );
+                gsap.to(menuToggle.children[0], { y: 0, rotation: 0, duration: 0.3 });
+                gsap.to(menuToggle.children[1], { opacity: 1, duration: 0.3 });
+                gsap.to(menuToggle.children[2], { y: 0, rotation: 0, duration: 0.3 });
             }
-            // If it IS already open, we skip e.preventDefault().
-            // The browser will naturally navigate to the link (e.g., href="nets.html").
-        }
-    });
-});
+        });
+
+        navItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            const dropdown = item.querySelector('.dropdown');
+            
+            link.addEventListener('click', (e) => {
+                if(window.innerWidth <= 1024) {
+                    // Check if this specific dropdown is already open
+                    const isOpen = dropdown.style.display === 'grid' || dropdown.style.display === 'block';
+                    
+                    // If it is NOT open, prevent navigation and open the dropdown first
+                    if(!isOpen) {
+                        e.preventDefault(); 
+                        
+                        // Close all other dropdowns
+                        document.querySelectorAll('.dropdown').forEach(d => { 
+                            d.style.display = 'none'; 
+                            gsap.set(d, { opacity: 0, visibility: 'hidden', pointerEvents: 'none' });
+                        });
+
+                        // Open the clicked one
+                        dropdown.style.display = dropdown.classList.contains('wide') ? 'grid' : 'block';
+                        gsap.fromTo(dropdown, 
+                            { height: 0, opacity: 0 }, 
+                            { 
+                                height: "auto", 
+                                opacity: 1, 
+                                visibility: 'visible',
+                                pointerEvents: 'all',
+                                duration: 0.4, 
+                                ease: "power2.out", 
+                                overwrite: true 
+                            }
+                        );
+                    }
+                    // If it IS already open, we skip e.preventDefault().
+                    // The browser will naturally navigate to the link (e.g., href="nets.html").
+                }
+            });
+        });
 
         // Initialize GSAP ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
