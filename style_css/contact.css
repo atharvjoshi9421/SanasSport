@@ -414,7 +414,16 @@ body {
         body.light-theme .footer-heading { color: #000; }
         body.light-theme .footer-address, body.light-theme .newsletter-desc, body.light-theme .footer-links a, body.light-theme .footer-bottom { color: #555; }
         body.light-theme .footer-contact-links a { color: #333; }
-        body.light-theme .footer-logo { filter: grayscale(20%) invert(1); }
+        /* Default Dark Mode */
+body .footer-logo {
+    filter: invert(1) !important;
+    transition: filter 0.3s ease;
+}
+
+/* Light Theme */
+body.light-theme .footer-logo {
+    filter: invert(0) !important;
+}
         body.light-theme .newsletter-input { color: #000; border-bottom: 1px solid rgba(0,0,0,0.2); }
         body.light-theme .newsletter-input::placeholder { color: #888; }
         body.light-theme .subscribe-btn { background: #000; color: #fff; }
